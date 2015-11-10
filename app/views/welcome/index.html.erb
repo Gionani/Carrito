@@ -1,0 +1,19 @@
+<h1>INICIO DE PAGINA</h1>
+<% if user_signed_in?  &&  (current_user.email)=='admin@example.com'%> 
+
+<%= link_to 'Nuevo Producto', new_product_path %>
+
+<%end%>
+<% if user_signed_in? %>
+<p>Bienvenido: <%= current_user.email %></p>
+<p><%= link_to "Ver productos", productclients_path %></p>
+<p><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></p>
+
+
+
+<%else%>
+<p><%= link_to "Crear una cuenta", new_user_registration_path %></p>
+<p>Si ya tienes cuenta: <%= link_to "Logeate", new_user_session_path %></p>
+
+<%end%>
+

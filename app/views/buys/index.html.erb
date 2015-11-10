@@ -1,0 +1,39 @@
+<div class="container">
+
+<h1 class="text-success">Lista de compras</h1>
+ 
+<div class="table-responsive">
+    <table class="table  table-hover table-condensed">
+        
+  <thead>
+
+  <tr class="active">
+    <th>id compra</th>
+    <th>id usuario</th>
+    <th>id producto</th>
+    
+  </tr>
+ </thead>
+ <tbody>
+   <% @buys.each do |buy| %>
+    <tr class="success text-verdana">
+      <td><%= buy.id %></td>
+      <td><%= buy.iduser %></td>
+      <td><%= buy.idproduct %></td>
+
+     
+    </tr>
+  <% end %>
+
+
+ </tbody>
+
+
+
+    </table>
+
+  </div>
+</div>
+
+
+<%= link_to 'Nueva compra', productclients_path %>

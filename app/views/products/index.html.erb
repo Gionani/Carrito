@@ -1,0 +1,41 @@
+<div class="container">
+
+<h1 class="text-success">Lista de Productos</h1>
+ 
+<div class="table-responsive">
+    <table class="table  table-hover table-condensed">
+        
+  <thead>
+
+  <tr class="active">
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Existencia</th>
+  </tr>
+ </thead>
+ <tbody>
+   <% @products.each do |product| %>
+    <tr class="success text-verdana">
+      <td><%= product.code %></td>
+      <td><%= product.name %></td>
+      <td><%= product.stock %></td>
+
+      <td><%= link_to 'Ver', product_path(product) %></td>
+    <td><%= link_to 'Modificar', edit_product_path(product) %></td>
+    <td><%= link_to 'Eliminar', product_path(product),
+                    method: :delete, data: { confirm: 'Esta seguro de eliminar Producto?' } %></td>
+    </tr>
+  <% end %>
+
+
+ </tbody>
+
+
+
+    </table>
+
+  </div>
+</div>
+
+
+<%= link_to 'Nuevo Producto', new_product_path %>

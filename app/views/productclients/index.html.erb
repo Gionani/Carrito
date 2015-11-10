@@ -1,0 +1,45 @@
+<% if user_signed_in? %>
+<div class="container">
+
+<h1 class="text-success">Lista de Productos</h1>
+ 
+<div class="table-responsive">
+    <table class="table  table-hover table-condensed">
+        
+  <thead>
+
+  <tr class="active">
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Existencia</th>
+  </tr>
+ </thead>
+ <tbody>
+   <% @products.each do |product| %>
+    <tr class="success text-verdana">
+      <td><%= product.code %></td>
+      <td><%= product.name %></td>
+      <td><%= product.stock %></td>
+      <td><input type="checkbox" name="option3" value="<%= product.code %>"> <%= product.id %></td>
+
+
+      
+    </tr>
+  <% end %>
+
+
+ </tbody>
+
+
+
+    </table>
+
+  </div>
+</div>
+<%else%>
+<p><%= link_to "Crear una cuenta", new_user_registration_path %></p>
+<p>Si ya tienes cuenta: <%= link_to "Logeate", new_user_session_path %></p>
+<%end%>
+
+
+
